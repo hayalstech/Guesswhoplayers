@@ -104,6 +104,24 @@
         </footer>
     </div>
 
-    <script src="all.js?v=3"></script>
+    <script>
+        // Test inline script
+        console.log('Inline script running');
+        alert('JavaScript is working! Click OK, then try the buttons.');
+        
+        // DOM Elements
+        const modeSelection = document.getElementById('mode-selection');
+        const gameContent = document.getElementById('game-content');
+        const modeButtons = document.querySelectorAll('.mode-btn');
+        
+        // Event Listeners
+        modeButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('Button clicked: ' + btn.dataset.mode);
+                modeSelection.classList.add('hidden');
+                gameContent.classList.remove('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
