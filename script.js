@@ -198,7 +198,7 @@ function createPlayerCard(player, index) {
         <div class="card-inner">
             <div class="card-front">
                 <div class="player-image-container">
-                    <img src="${player.imageUrl}" 
+                    <img src="Images/${player.imageFile}" 
                          alt="${player.name}" 
                          class="player-image"
                          loading="lazy"
