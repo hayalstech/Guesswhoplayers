@@ -104,9 +104,12 @@
         </footer>
     </div>
 
-    <script src="players.js?v=4"></script>
-    <script src="rounds.js?v=4"></script>
-    <script src="words.js?v=4"></script>
-    <script src="script.js?v=4"></script>
+    <script src="all.js?v=6"></script>
+    <script>
+        // Debug: Check if data loaded
+        console.log('Scripts loaded check:');
+        console.log('PLAYERS_DATABASE:', typeof PLAYERS_DATABASE !== 'undefined' ? 'OK' : 'FAIL');
+        console.log('PREDETERMINED_ROUNDS:', typeof PREDETERMINED_ROUNDS !== 'undefined' ? 'OK' : 'FAIL');
+    </script>
 </body>
 </html>
