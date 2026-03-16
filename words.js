@@ -1,105 +1,135 @@
-// 90 Words Database for Guess The Word Game
-// Football-related terms, famous players, teams, and stadiums
+// Predefined list of 90 common English words and 30 fixed word rounds
 
-const WORDS_DATABASE = [
-    // FOOTBALL TERMS (30)
-    { id: 1, word: "GOALKEEPER", category: "Position" },
-    { id: 2, word: "DEFENDER", category: "Position" },
-    { id: 3, word: "MIDFIELDER", category: "Position" },
-    { id: 4, word: "FORWARD", category: "Position" },
-    { id: 5, word: "STRIKER", category: "Position" },
-    { id: 6, word: "WINGER", category: "Position" },
-    { id: 7, word: "CAPTAIN", category: "Role" },
-    { id: 8, word: "MANAGER", category: "Role" },
-    { id: 9, word: "REFEREE", category: "Role" },
-    { id: 10, word: "LINESMAN", category: "Role" },
-    { id: 11, word: "PENALTY", category: "Term" },
-    { id: 12, word: "CORNER", category: "Term" },
-    { id: 13, word: "OFFSIDE", category: "Term" },
-    { id: 14, word: "HEADER", category: "Term" },
-    { id: 15, word: "VOLLEY", category: "Term" },
-    { id: 16, word: "DRIBBLE", category: "Term" },
-    { id: 17, word: "TACKLE", category: "Term" },
-    { id: 18, word: "PASSING", category: "Term" },
-    { id: 19, word: "SHOOTING", category: "Term" },
-    { id: 20, word: "SAVINGS", category: "Term" },
-    { id: 21, word: "FORMATION", category: "Term" },
-    { id: 22, word: "SUBSTITUTE", category: "Term" },
-    { id: 23, word: "INJURY", category: "Term" },
-    { id: 24, word: "VAR", category: "Term" },
-    { id: 25, word: "FLAG", category: "Term" },
-    { id: 26, word: "WHISTLE", category: "Term" },
-    { id: 27, word: "KICKOFF", category: "Term" },
-    { id: 28, word: "HALFTIME", category: "Term" },
-    { id: 29, word: "FULLTIME", category: "Term" },
-    { id: 30, word: "EXTRA", category: "Term" },
-    
-    // FAMOUS PLAYERS (30)
-    { id: 31, word: "PELE", category: "Legend" },
-    { id: 32, word: "MARADONA", category: "Legend" },
-    { id: 33, word: "ZIDANE", category: "Legend" },
-    { id: 34, word: "RONALDINHO", category: "Legend" },
-    { id: 35, word: "BECKHAM", category: "Legend" },
-    { id: 36, word: "ROONEY", category: "Legend" },
-    { id: 37, word: "SHEARER", category: "Legend" },
-    { id: 38, word: "HENRY", category: "Legend" },
-    { id: 39, word: "GERRARD", category: "Legend" },
-    { id: 40, word: "LAMPARD", category: "Legend" },
-    { id: 41, word: "TERRY", category: "Legend" },
-    { id: 42, word: "FERDINAND", category: "Legend" },
-    { id: 43, word: "NESTA", category: "Legend" },
-    { id: 44, word: "MALDINI", category: "Legend" },
-    { id: 45, word: "BUFFON", category: "Legend" },
-    { id: 46, word: "CASILLAS", category: "Legend" },
-    { id: 47, word: "CAFU", category: "Legend" },
-    { id: 48, word: "ROBERTO", category: "Legend" },
-    { id: 49, word: "KAKA", category: "Legend" },
-    { id: 50, word: "RIVALDO", category: "Legend" },
-    { id: 51, word: "FIGO", category: "Legend" },
-    { id: 52, word: "RAUL", category: "Legend" },
-    { id: 53, word: "SHEVCHENKO", category: "Legend" },
-    { id: 54, word: "DROGBA", category: "Legend" },
-    { id: 55, word: "LAMPARD", category: "Legend" },
-    { id: 56, word: "GERARD", category: "Legend" },
-    { id: 57, word: "SCHOLES", category: "Legend" },
-    { id: 58, word: "GIGGS", category: "Legend" },
-    { id: 59, word: "BECKENBAUER", category: "Legend" },
-    { id: 60, word: "CRUYFF", category: "Legend" },
-    
-    // TEAMS & STADIUMS (30)
-    { id: 61, word: "MADRID", category: "Team" },
-    { id: 62, word: "BARCELONA", category: "Team" },
-    { id: 63, word: "MANCHESTER", category: "Team" },
-    { id: 64, word: "LIVERPOOL", category: "Team" },
-    { id: 65, word: "CHELSEA", category: "Team" },
-    { id: 66, word: "ARSENAL", category: "Team" },
-    { id: 67, word: "TOTTENHAM", category: "Team" },
-    { id: 68, word: "JUVENTUS", category: "Team" },
-    { id: 69, word: "MILAN", category: "Team" },
-    { id: 70, word: "INTER", category: "Team" },
-    { id: 71, word: "NAPOLI", category: "Team" },
-    { id: 72, word: "ROMA", category: "Team" },
-    { id: 73, word: "BAYERN", category: "Team" },
-    { id: 74, word: "DORTMUND", category: "Team" },
-    { id: 75, word: "PSG", category: "Team" },
-    { id: 76, word: "AJAX", category: "Team" },
-    { id: 77, word: "PORTO", category: "Team" },
-    { id: 78, word: "BENFICA", category: "Team" },
-    { id: 79, word: "SPORTING", category: "Team" },
-    { id: 80, word: "SEVILLA", category: "Team" },
-    { id: 81, word: "VALENCIA", category: "Team" },
-    { id: 82, word: "ATLETICO", category: "Team" },
-    { id: 83, word: "WEMBLEY", category: "Stadium" },
-    { id: 84, word: "CAMPNOU", category: "Stadium" },
-    { id: 85, word: "BERNABEU", category: "Stadium" },
-    { id: 86, word: "OLDTRAFFORD", category: "Stadium" },
-    { id: 87, word: "ANFIELD", category: "Stadium" },
-    { id: 88, word: "SANSIRO", category: "Stadium" },
-    { id: 89, word: "ALLIANZ", category: "Stadium" },
-    { id: 90, word: "MARACANA", category: "Stadium" }
+const WORDS = [
+  { word: "BALL", category: "Football" },
+  { word: "GOAL", category: "Football" },
+  { word: "PASS", category: "Football" },
+  { word: "SHOOT", category: "Football" },
+  { word: "STRIKE", category: "Football" },
+  { word: "CROSS", category: "Football" },
+  { word: "TACKLE", category: "Football" },
+  { word: "DRIBBLE", category: "Football" },
+  { word: "HEADER", category: "Football" },
+  { word: "CORNER", category: "Football" },
+  { word: "STADIUM", category: "Place" },
+  { word: "PITCH", category: "Place" },
+  { word: "REFEREE", category: "Person" },
+  { word: "MANAGER", category: "Person" },
+  { word: "CAPTAIN", category: "Person" },
+  { word: "FAN", category: "Person" },
+  { word: "CROWD", category: "Group" },
+  { word: "TEAM", category: "Group" },
+  { word: "CLUB", category: "Group" },
+  { word: "LEAGUE", category: "Competition" },
+  { word: "DERBY", category: "Match" },
+  { word: "DRAW", category: "Result" },
+  { word: "WINNER", category: "Result" },
+  { word: "LOSER", category: "Result" },
+  { word: "POINT", category: "Scoring" },
+  { word: "TABLE", category: "Scoring" },
+  { word: "TITLE", category: "Competition" },
+  { word: "TROPHY", category: "Object" },
+  { word: "MEDAL", category: "Object" },
+  { word: "JERSEY", category: "Object" },
+  { word: "NUMBER", category: "Object" },
+  { word: "BOOTS", category: "Object" },
+  { word: "KIT", category: "Object" },
+  { word: "WHISTLE", category: "Object" },
+  { word: "BENCH", category: "Place" },
+  { word: "SUB", category: "Role" },
+  { word: "COACH", category: "Role" },
+  { word: "KEEPER", category: "Role" },
+  { word: "DEFENDER", category: "Role" },
+  { word: "MIDFIELD", category: "Role" },
+  { word: "FORWARD", category: "Role" },
+  { word: "WINGER", category: "Role" },
+  { word: "TALENT", category: "Trait" },
+  { word: "SKILL", category: "Trait" },
+  { word: "PACE", category: "Trait" },
+  { word: "POWER", category: "Trait" },
+  { word: "VISION", category: "Trait" },
+  { word: "TECHNIQUE", category: "Trait" },
+  { word: "PASSION", category: "Trait" },
+  { word: "SPIRIT", category: "Trait" },
+  { word: "HEART", category: "Trait" },
+  { word: "CROSSFIRE", category: "Term" },
+  { word: "OFFSIDE", category: "Rule" },
+  { word: "FOUL", category: "Rule" },
+  { word: "HANDBALL", category: "Rule" },
+  { word: "PENALTY", category: "Rule" },
+  { word: "FREEKICK", category: "Rule" },
+  { word: "KICKOFF", category: "Rule" },
+  { word: "HALFTIME", category: "Time" },
+  { word: "FULLTIME", category: "Time" },
+  { word: "EXTRA", category: "Time" },
+  { word: "SCORE", category: "Scoring" },
+  { word: "CHANCE", category: "Scoring" },
+  { word: "REPLAY", category: "Media" },
+  { word: "HIGHLIGHT", category: "Media" },
+  { word: "STREAM", category: "Media" },
+  { word: "COMMENT", category: "Media" },
+  { word: "ANALYST", category: "Media" },
+  { word: "RESULT", category: "Match" },
+  { word: "FORM", category: "Match" },
+  { word: "STREAK", category: "Match" },
+  { word: "RECORD", category: "Match" },
+  { word: "LEGEND", category: "Status" },
+  { word: "ICON", category: "Status" },
+  { word: "HERO", category: "Status" },
+  { word: "ROOKIE", category: "Status" },
+  { word: "VETERAN", category: "Status" },
+  { word: "BENCHMARK", category: "Status" },
+  { word: "ENERGY", category: "Trait" },
+  { word: "FOCUS", category: "Trait" },
+  { word: "CONTROL", category: "Trait" },
+  { word: "BALANCE", category: "Trait" },
+  { word: "PRESS", category: "Tactic" },
+  { word: "BLOCK", category: "Tactic" },
+  { word: "COUNTER", category: "Tactic" },
+  { word: "SHAPE", category: "Tactic" },
+  { word: "LINE", category: "Tactic" },
+  { word: "SPACE", category: "Tactic" },
+  { word: "MARK", category: "Tactic" },
+  { word: "ZONE", category: "Tactic" },
+  { word: "DRIVE", category: "Trait" },
+  { word: "SMILE", category: "Emotion" },
+  { word: "NOISE", category: "Emotion" },
+  { word: "CHEER", category: "Emotion" },
+  { word: "CHANT", category: "Emotion" },
+  { word: "GLORY", category: "Emotion" }
 ];
 
-// Export for use in other files
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { WORDS_DATABASE };
-}
+// 30 predetermined word rounds, each points at a fixed word index (0–89)
+const WORD_ROUNDS = [
+  0,  // Round 1 -> BALL
+  5,  // Round 2
+  10, // Round 3
+  15, // Round 4
+  20, // Round 5
+  25, // Round 6
+  30, // Round 7
+  35, // Round 8
+  40, // Round 9
+  45, // Round 10
+  50, // Round 11
+  55, // Round 12
+  60, // Round 13
+  65, // Round 14
+  70, // Round 15
+  75, // Round 16
+  80, // Round 17
+  85, // Round 18
+  1,  // Round 19
+  6,  // Round 20
+  11, // Round 21
+  16, // Round 22
+  21, // Round 23
+  26, // Round 24
+  31, // Round 25
+  36, // Round 26
+  41, // Round 27
+  46, // Round 28
+  51, // Round 29
+  56  // Round 30
+];
+
