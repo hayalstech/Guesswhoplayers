@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createRoundButtons();
     setupEventListeners();
     console.log('Guess Whoo initialized');
+    alert('Game loaded! Click the mode buttons to start.');
 });
 
 // ====================
@@ -55,8 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
 // ====================
 function setupEventListeners() {
     // Mode selection
-    modeButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
+    console.log('Setting up event listeners, found mode buttons:', modeButtons.length);
+    modeButtons.forEach((btn, index) => {
+        console.log('Adding click listener to button', index, btn.dataset.mode);
+        btn.addEventListener('click', (e) => {
+            console.log('Button clicked!', e.target);
+            alert('Mode button clicked: ' + btn.dataset.mode);
             const mode = btn.dataset.mode;
             selectGameMode(mode);
         });
