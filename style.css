@@ -123,7 +123,6 @@ body {
     align-items: center;
     gap: 12px;
     box-shadow: var(--shadow-lg);
-    backdrop-filter: blur(10px);
 }
 
 .mode-btn:hover {
@@ -594,7 +593,6 @@ body {
     display: flex;
     align-items: center;
     gap: 6px;
-    backdrop-filter: blur(10px);
 }
 
 .control-btn:hover {
