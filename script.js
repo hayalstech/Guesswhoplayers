@@ -217,12 +217,16 @@ function createPlayerCard(player, index) {
         </div>
     `;
 
-    card.addEventListener('click', () => handleCardClick(card, player));
+    card.addEventListener('click', (e) => {
+        console.log('Card clicked:', player.name, 'Event:', e);
+        handleCardClick(card, player);
+    });
 
     return card;
 }
 
 function handleCardClick(card, player) {
+    console.log('handleCardClick called for:', player.name, 'isPickMode:', isPickMode);
     if (isPickMode) {
         // Set this player as secret
         secretPlayer = player;
@@ -240,7 +244,9 @@ function handleCardClick(card, player) {
         });
     } else {
         // Normal flip
+        console.log('Toggling flipped class on card:', card);
         card.classList.toggle('flipped');
+        console.log('Card classes after toggle:', card.className);
         
         // Check if secret was revealed
         if (player.id === secretPlayer.id && !card.classList.contains('flipped')) {
