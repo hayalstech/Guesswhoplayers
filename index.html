@@ -8,6 +8,7 @@
 </head>
 <body>
     <script>alert('Inline script test - HTML is loading');</script>
+    <script>console.log('Test log before external scripts');</script>
     <div class="game-wrapper">
         <!-- Header -->
         <header class="game-header">
@@ -104,9 +105,9 @@
         </footer>
     </div>
 
-    <script src="players.js"></script>
-    <script src="rounds.js"></script>
-    <script src="words.js"></script>
-    <script src="script.js"></script>
+    <script src="players.js?v=2"></script>
+    <script src="rounds.js?v=2"></script>
+    <script src="words.js?v=2"></script>
+    <script src="script.js?v=2"></script>
 </body>
 </html>
